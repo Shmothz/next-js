@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "next",
+    "next/core-web-vitals"
+  ],
+  "rules": {
+    "quotes": ["error", "single"],
+    "jsx-quotes": ["error", "prefer-single"],
+    "semi": ["error", "never"],
+    "no-console": "warn",
+    "prefer-const": "warn",
+    "comma-dangle": ["error", "always-multiline"],
+    "import/order": ["error", {
+      "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"]
+    }]
+  }
+}
