@@ -1,6 +1,14 @@
+@import '@/styles/styles.scss';
+
 .container {
-  padding: 18px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  @include flex-align-center(space-around);
+  @include big-padding;
+
+  & > p {
+    margin: 0;
+  }
+
+  .copyright > a {
+    @include a-default-text;
+  }
 }

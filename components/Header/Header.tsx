@@ -1,15 +1,13 @@
-'use client'
-import Link from 'next/link'
+import Image from 'next/image'
 import {routes} from '@/constants'
+import {Navigation} from '@/components/Navigation'
+import logo from '../../public/logo.png'
 import s from './Header.module.scss'
 
 export const Header = () => {
 
- const { home, about, cards } = routes
- 
  return <header className={s.container}>
-  <Link href={home} className={s.link}>Home</Link>
-  <Link href={about} className={s.link}>About</Link>
-  <Link href={cards} className={s.link}>Cards</Link>
+  <Image className={s.logo} height={52} src={logo} alt={'logo'}/>
+  <Navigation links={routes}/>
  </header>
 }

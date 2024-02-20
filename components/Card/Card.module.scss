@@ -1,0 +1,15 @@
+@import '@/styles/styles.scss';
+.container {
+  @include big-padding;
+  @include big-margin;
+  background-color: $card-bgc;
+  .name {
+    font-size: 18px;
+
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0 0;
+  }
+}

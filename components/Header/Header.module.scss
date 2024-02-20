@@ -1,13 +1,11 @@
+@import '@/styles/styles.scss';
+
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  & .link {
-    padding: 18px;
-    color: white;
-    text-decoration: none;
-    &:hover {
-      background-color: lawngreen;
-    }
+  @include flex-align-center(center);
+  position: relative;
+  .logo {
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 }
