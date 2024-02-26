@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 
-export default function NotFound() {
+export default function Error() {
  return (
   <div>
    <p>Some error...</p>
