@@ -2,19 +2,25 @@
 import Link from 'next/link'
 import cn from 'classnames'
 import {usePathname} from 'next/navigation'
-import {ILink} from '@/constants/routes'
+import {signOut, useSession} from 'next-auth/react'
+import {routes} from '@/constants/routes'
 import s from './Navigation.module.scss'
 
-type IProps = {
- links: ILink[]
-}
-export const Navigation = ({ links }: IProps) => {
+export const Navigation = () => {
  const pathname = usePathname()
+ const session = useSession()
+ console.log(session)
  return (
-  <> { links.map((link) => {
+  <> {routes.map((link) => {
    const isActive = pathname === link.route
    return (<Link key={link.route} href={link.route} className={cn(s.link, isActive && s.active)}>{link.label}</Link>)
   })}
+     {!!session.data &&
+      <Link href={'/profile'} className={cn(s.link, pathname === '/profile' && s.active)}>profile</Link>}
+     {!!session.data ? <Link href={'#'} className={s.link} onClick={() => signOut({
+      callbackUrl: '/',
+      })}>sign out</Link> :
+      <Link href={'/api/auth/signin'} className={s.link}>sign in</Link>}
   </>
  )
 }

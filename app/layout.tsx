@@ -7,6 +7,7 @@ import s from './layout.module.scss'
 import type {Metadata} from 'next'
 import '../styles/globals.css'
 import '../styles/normalize.css'
+import {Providers} from '@/components/Providers'
 
 const inter = Fredoka({subsets: ['latin']})
 export const metadata: Metadata = {
@@ -22,11 +23,13 @@ export default function RootLayout({
  return (
   <html lang='en'>
   <body className={cn(inter.className, s.body)}>
-  <Header/>
-  <main className={s.main}>
-   {children}
-  </main>
-  <Footer/>
+  <Providers>
+   <Header/>
+   <main className={s.main}>
+    {children}
+   </main>
+   <Footer/>
+  </Providers>
   </body>
   </html>
  )
